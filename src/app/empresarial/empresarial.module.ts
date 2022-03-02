@@ -4,21 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { EmpresarialPageRoutingModule } from './empresarial-routing.module';
 
-import { HomePage } from './home.page';
-import { CardModule } from 'primeng/card';
-
-
+import { EmpresarialPage } from './empresarial.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
-    CardModule
+    EmpresarialPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [EmpresarialPage]
 })
-export class HomePageModule { }
+export class EmpresarialPageModule {}

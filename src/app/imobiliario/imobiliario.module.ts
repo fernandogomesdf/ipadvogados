@@ -4,21 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { ImobiliarioPageRoutingModule } from './imobiliario-routing.module';
 
-import { HomePage } from './home.page';
-import { CardModule } from 'primeng/card';
-
-
+import { ImobiliarioPage } from './imobiliario.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
-    CardModule
+    ImobiliarioPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [ImobiliarioPage]
 })
-export class HomePageModule { }
+export class ImobiliarioPageModule {}

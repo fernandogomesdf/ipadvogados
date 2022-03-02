@@ -4,13 +4,13 @@
       <img src="./assets/logo.png" />
       <ion-list id="inbox-list">
         <ion-list-header>
-          
+
         </ion-list-header>
         <ion-note></ion-note>
 
         <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
           <ion-item routerDirection="root" [href]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+            <ion-icon *ngIf="p.icon" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
             <ion-label><b>{{ p.title }}</b></ion-label>
           </ion-item>
         </ion-menu-toggle>
@@ -19,5 +19,28 @@
 
     </ion-content>
   </ion-menu>
-  <ion-router-outlet id="main-content"></ion-router-outlet>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center"><img src="./assets/logo.png" width="200" /></ion-title>
+      <ion-buttons slot="end" (click)="whatsapp()">
+        <ion-button>
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="whatsapp()" color="success">
+        <ion-icon name="logo-whatsapp"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
 </ion-app>

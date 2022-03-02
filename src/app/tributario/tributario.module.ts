@@ -4,21 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { TributarioPageRoutingModule } from './tributario-routing.module';
 
-import { HomePage } from './home.page';
-import { CardModule } from 'primeng/card';
-
-
+import { TributarioPage } from './tributario.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
-    CardModule
+    TributarioPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [TributarioPage]
 })
-export class HomePageModule { }
+export class TributarioPageModule {}

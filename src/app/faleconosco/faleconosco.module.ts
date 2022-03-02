@@ -4,21 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { FaleconoscoPageRoutingModule } from './faleconosco-routing.module';
 
-import { HomePage } from './home.page';
-import { CardModule } from 'primeng/card';
-
-
+import { FaleconoscoPage } from './faleconosco.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
-    CardModule
+    FaleconoscoPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [FaleconoscoPage]
 })
-export class HomePageModule { }
+export class FaleconoscoPageModule {}
