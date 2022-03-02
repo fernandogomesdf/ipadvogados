@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { TributarioPageRoutingModule } from './tributario-routing.module';
 
 import { TributarioPage } from './tributario.page';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TributarioPageRoutingModule
+    TributarioPageRoutingModule,
+    HeaderModule
   ],
   declarations: [TributarioPage]
 })

@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { CardModule } from 'primeng/card';
+import { HeaderModule } from '../header/header.module';
 
 
 
@@ -17,7 +18,8 @@ import { CardModule } from 'primeng/card';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    CardModule
+    CardModule,
+    HeaderModule
   ],
   declarations: [HomePage]
 })

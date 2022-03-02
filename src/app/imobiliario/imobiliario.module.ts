@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ImobiliarioPageRoutingModule } from './imobiliario-routing.module';
 
 import { ImobiliarioPage } from './imobiliario.page';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ImobiliarioPageRoutingModule
+    ImobiliarioPageRoutingModule,
+    HeaderModule
   ],
   declarations: [ImobiliarioPage]
 })
-export class ImobiliarioPageModule {}
+export class ImobiliarioPageModule { }

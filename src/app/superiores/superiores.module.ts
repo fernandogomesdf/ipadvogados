@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { SuperioresPageRoutingModule } from './superiores-routing.module';
 
 import { SuperioresPage } from './superiores.page';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SuperioresPageRoutingModule
+    SuperioresPageRoutingModule,
+    HeaderModule
   ],
   declarations: [SuperioresPage]
 })
-export class SuperioresPageModule {}
+export class SuperioresPageModule { }

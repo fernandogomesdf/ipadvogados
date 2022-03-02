@@ -8,11 +8,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { CardModule } from 'primeng/card';
+import { HeaderModule } from './header/header.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CardModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CardModule, HeaderModule],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })

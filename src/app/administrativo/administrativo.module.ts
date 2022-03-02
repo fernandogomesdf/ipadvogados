@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { AdministrativoPageRoutingModule } from './administrativo-routing.module';
 
 import { AdministrativoPage } from './administrativo.page';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AdministrativoPageRoutingModule
+    AdministrativoPageRoutingModule,
+    HeaderModule
   ],
   declarations: [AdministrativoPage]
 })
-export class AdministrativoPageModule {}
+export class AdministrativoPageModule { }

@@ -1,7 +1,8 @@
 <ion-app>
   <ion-menu contentId="main-content" type="overlay">
     <ion-content>
-      <img src="./assets/logo.png" />
+
+      <img src="./assets/logo.png" class="invertable" />
       <ion-list id="inbox-list">
         <ion-list-header>
 
@@ -19,28 +20,13 @@
 
     </ion-content>
   </ion-menu>
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title class="ion-text-center"><img src="./assets/logo.png" width="200" /></ion-title>
-      <ion-buttons slot="end" (click)="whatsapp()">
-        <ion-button>
-          <ion-icon name="logo-whatsapp"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-content>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="whatsapp()" color="success">
-        <ion-icon name="logo-whatsapp"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  </ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="whatsapp()" color="success">
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-app>

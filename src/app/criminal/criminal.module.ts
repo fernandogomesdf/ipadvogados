@@ -7,14 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { CriminalPageRoutingModule } from './criminal-routing.module';
 
 import { CriminalPage } from './criminal.page';
+import { CardModule } from 'primeng/card';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CriminalPageRoutingModule
+    CriminalPageRoutingModule,
+    CardModule,
+    HeaderModule
   ],
   declarations: [CriminalPage]
 })
-export class CriminalPageModule {}
+export class CriminalPageModule { }

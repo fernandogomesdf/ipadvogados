@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { TrabalhistaPageRoutingModule } from './trabalhista-routing.module';
 
 import { TrabalhistaPage } from './trabalhista.page';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TrabalhistaPageRoutingModule
+    TrabalhistaPageRoutingModule,
+    HeaderModule
   ],
   declarations: [TrabalhistaPage]
 })
