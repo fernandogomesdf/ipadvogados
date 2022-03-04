@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from './header.component';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 @NgModule({
     imports: [
@@ -14,6 +14,7 @@ import { NgModule } from '@angular/core';
     exports: [
         HeaderComponent,
     ],
-    providers: []
+    providers: [],
+    schemas: [NO_ERRORS_SCHEMA]
 })
 export class HeaderModule { }
