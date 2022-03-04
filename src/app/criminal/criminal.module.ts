@@ -20,6 +20,6 @@ import { HeaderModule } from '../header/header.module';
     HeaderModule
   ],
   declarations: [CriminalPage],
-  schemas : [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class CriminalPageModule { }
