@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/api';
 import { CardModule } from 'primeng/card';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -5,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -23,9 +26,12 @@ import { HeaderModule } from '../header/header.module';
     CardModule,
     InputTextModule,
     InputMaskModule,
-    InputTextareaModule
+    InputTextareaModule,
+    ButtonModule,
+    ToastModule
   ],
   declarations: [FaleconoscoPage],
-  schemas: [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA],
+  providers: [MessageService]
 })
 export class FaleconoscoPageModule { }
