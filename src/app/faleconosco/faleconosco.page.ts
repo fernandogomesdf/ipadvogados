@@ -8,7 +8,6 @@ import { MessageService } from 'primeng/api';
 })
 export class FaleconoscoPage implements OnInit {
 
-  size = 40;
   formulario: any = {};
 
   constructor(private messageService: MessageService) { }
@@ -17,13 +16,43 @@ export class FaleconoscoPage implements OnInit {
   }
 
   solicitar() {
-    //this.appService.request('/estabelecimento/cadastrar', this.formulario, VerboHttp.PUT);
-    this.validar();
+    if (this.isValido()) {
+
+    }
   }
 
-  validar() {
-    this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'Via MessageService' });
-    console.log('ddd');
+  isValido() {
+    let valido = true;
+
+    if (!this.formulario.nome) {
+      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O nome é requerido.' });
+      valido = false;
+    }
+
+    if (!this.formulario.telefone) {
+      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O telefone é requerido.' });
+      valido = false;
+    }
+
+    if (this.formulario.email) {
+      if (!this.isEmailValid(this.formulario.email)) {
+        this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O e-mail é inválido.' });
+        valido = false;
+      }
+    }
+
+    if (!this.formulario.texto) {
+      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O texto descrendo seu caso é requerido.' });
+      valido = false;
+    }
+
+    return valido;
+  }
+
+  isEmailValid(email) {
+    // eslint-disable-next-line max-len
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
   }
 
 }
