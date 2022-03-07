@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaleconoscoPage implements OnInit {
 
+  size = 40;
+
   constructor() { }
 
   ngOnInit() {

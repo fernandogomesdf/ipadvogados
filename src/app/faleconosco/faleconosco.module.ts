@@ -1,6 +1,10 @@
-import { NgModule } from '@angular/core';
+import { CardModule } from 'primeng/card';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -15,8 +19,13 @@ import { HeaderModule } from '../header/header.module';
     FormsModule,
     IonicModule,
     FaleconoscoPageRoutingModule,
-    HeaderModule
+    HeaderModule,
+    CardModule,
+    InputTextModule,
+    InputMaskModule,
+    InputTextareaModule
   ],
-  declarations: [FaleconoscoPage]
+  declarations: [FaleconoscoPage],
+  schemas: [NO_ERRORS_SCHEMA]
 })
-export class FaleconoscoPageModule {}
+export class FaleconoscoPageModule { }
