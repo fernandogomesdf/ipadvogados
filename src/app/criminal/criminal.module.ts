@@ -1,3 +1,4 @@
+import { ButtonModule } from 'primeng/button';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +18,8 @@ import { HeaderModule } from '../header/header.module';
     IonicModule,
     CriminalPageRoutingModule,
     CardModule,
-    HeaderModule
+    HeaderModule,
+    ButtonModule
   ],
   declarations: [CriminalPage],
   schemas: [NO_ERRORS_SCHEMA]

@@ -5,7 +5,7 @@
     <p-card [style]="{width: '100%'}" styleClass="p-card-shadow">
 
       <p-card header="Fale Conosco">
-        <div class="grid p-fluid align-content-center">
+        <div class="grid p-fluid">
           <div class="p-inputgroup" style="max-width: 600px;">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
             <input [(ngModel)]="formulario.nome" type="text" pInputText placeholder="Nome Completo" size="50">
@@ -24,11 +24,11 @@
           <textarea style="max-width: 600px;" [(ngModel)]="formulario.texto" pInputTextarea
             placeholder="Descreva como podemos ajudar. Se preferir, solicite uma reunião." rows="5"
             class="pt-2 pb-2"></textarea>
-
-          <ion-button color="primary" expand="full" (click)="solicitar()">
-            <ion-icon slot="start" name="checkmark"></ion-icon>
-            <b>Solicitar especialista</b>
-          </ion-button>
+          <div>
+            <br>
+            <button pButton type="button" label="Solicitar especialista" (click)="solicitar()" icon="pi pi-check"
+              iconPos="left"></button>
+          </div>
 
         </div>
       </p-card>

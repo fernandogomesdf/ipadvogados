@@ -1,3 +1,4 @@
+import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +18,8 @@ import { HeaderModule } from '../header/header.module';
     IonicModule,
     SuperioresPageRoutingModule,
     HeaderModule,
-    CardModule
+    CardModule,
+    ButtonModule
   ],
   declarations: [SuperioresPage],
   schemas: [NO_ERRORS_SCHEMA]
