@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { AppService, VerboHttp } from './../app.service';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
@@ -19,10 +20,9 @@ export class FaleconoscoPage implements OnInit {
   solicitar() {
     if (this.isValido()) {
       this.appService.request('/services/mail/enviar', this.formulario, VerboHttp.POST).subscribe(data => {
-        console.log(data);
-        console.log(data.resposta);
         if (data && data.resposta === 'ok') {
-          this.appService.msgSucesso('A mensagem foi enviada com sucesso, aguarde contato!');
+          this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'A mensagem foi enviada com sucesso, aguarde contato!' });
+          this.formulario = {};
         }
       });
     }
@@ -49,7 +49,7 @@ export class FaleconoscoPage implements OnInit {
     }
 
     if (!this.formulario.texto) {
-      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O texto descrendo seu caso é requerido.' });
+      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O texto descrevendo seu caso é requerido.' });
       valido = false;
     }
 

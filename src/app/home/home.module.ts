@@ -10,8 +10,6 @@ import { HomePage } from './home.page';
 import { CardModule } from 'primeng/card';
 import { HeaderModule } from '../header/header.module';
 
-
-
 @NgModule({
   imports: [
     CommonModule,

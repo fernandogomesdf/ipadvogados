@@ -8,8 +8,6 @@ import { AppService } from '../app.service';
 })
 export class HeaderComponent implements OnInit {
 
-
-
   constructor(private appService: AppService) { }
 
   ngOnInit() { }
@@ -17,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   whatsapp() {
 
-    this.appService.whatsapp()
-    
+    this.appService.whatsapp();
+
   }
 }
