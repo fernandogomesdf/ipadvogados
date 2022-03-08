@@ -2,10 +2,10 @@
 
 <ion-content>
   <div class="p-2">
-    <p-card [style]="{width: '100%'}" styleClass="p-card-shadow">
+    <p-card header="Fale Conosco" [style]="{width: '100%'}" styleClass="p-card-shadow">
 
-      <p-card header="Fale Conosco">
-        <div class="grid p-fluid">
+      <p-card>
+        <div class="grid p-fluid" style="max-width: 800px;">
           <div class="p-inputgroup" style="max-width: 600px;">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
             <input [(ngModel)]="formulario.nome" type="text" pInputText placeholder="Nome Completo" size="50">
@@ -18,8 +18,10 @@
           <br>
           <div class="p-inputgroup pt-2 pb-2" style="max-width: 600px;">
             <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-            <input [(ngModel)]="formulario.telefone" type="text" pInputText placeholder="Telefone" size="20">
+            <input mask="+00 (00) 00000-0000" [(ngModel)]="formulario.telefone" type="text" pInputText
+              placeholder="Telefone" size="20">
           </div>
+          <br>
           <br>
           <textarea style="max-width: 600px;" [(ngModel)]="formulario.texto" pInputTextarea
             placeholder="Descreva como podemos ajudar. Se preferir, solicite uma reunião." rows="5"
@@ -35,3 +37,10 @@
     </p-card>
   </div>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title style="font-size: smaller;">SIG Quadra 1 - Centro Empresarial Parque Brasília, Loja 7
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

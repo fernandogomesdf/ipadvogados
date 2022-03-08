@@ -15,6 +15,9 @@ import { FaleconoscoPageRoutingModule } from './faleconosco-routing.module';
 
 import { FaleconoscoPage } from './faleconosco.page';
 import { HeaderModule } from '../header/header.module';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   imports: [
@@ -28,7 +31,8 @@ import { HeaderModule } from '../header/header.module';
     InputMaskModule,
     InputTextareaModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    NgxMaskModule.forRoot()
   ],
   declarations: [FaleconoscoPage],
   schemas: [NO_ERRORS_SCHEMA],

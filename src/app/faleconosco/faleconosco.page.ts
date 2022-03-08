@@ -10,7 +10,7 @@ import { MessageService } from 'primeng/api';
 })
 export class FaleconoscoPage implements OnInit {
 
-  formulario: any = {};
+  formulario: any = { telefone: '55619' };
 
   constructor(private messageService: MessageService, private appService: AppService) { }
 
@@ -38,6 +38,11 @@ export class FaleconoscoPage implements OnInit {
 
     if (!this.formulario.telefone) {
       this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O telefone é requerido.' });
+      valido = false;
+    }
+
+    if (this.formulario.telefone.length !== 13) {
+      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O telefone é inválido.' });
       valido = false;
     }
 
