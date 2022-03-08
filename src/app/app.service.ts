@@ -15,6 +15,8 @@ import { MessageService } from 'primeng/api';
 })
 export class AppService {
 
+  showSpinner = false;
+
   hrefwpp = 'https://api.whatsapp.com/send?phone=5561984562536&text=Ol%C3%A1,%20preciso%20de%20assist%C3%AAncia%20com%20o%20seguinte%20assunto:%20';
 
   constructor(private http: HttpClient, private router: Router, private messageService: MessageService) {
@@ -30,8 +32,8 @@ export class AppService {
   }
 
   getServerHostPort() {
-    //const serverHostPort = location.protocol + '//ipadvogados.com/sqlite-rest';
-    const serverHostPort = location.protocol + '//localhost:8080/sqlite-rest';
+    const serverHostPort = location.protocol + '//ipadvogados.com/sqlite-rest';
+    //const serverHostPort = location.protocol + '//localhost:8080/sqlite-rest';
     return serverHostPort;
   }
 
@@ -86,13 +88,18 @@ export class AppService {
   }
 
   request(url: string, data: any, verbo: VerboHttp): Observable<any> {
+    this.showSpinner = true;
     const response$ = this.chamarUrl(this.getServerHostPort() + url, data, verbo).pipe(
       map(response => response),
       share()
     );
     response$.subscribe({
+      complete: () => {
+        this.showSpinner = false;
+      },
       error: (err) => {
         this.tratarErro(err);
+        this.showSpinner = false;
       }
     });
     return response$;

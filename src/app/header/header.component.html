@@ -10,6 +10,7 @@
       <ion-button>
         <ion-icon name="logo-whatsapp"></ion-icon>
       </ion-button>
+      <p-progressSpinner *ngIf="appService.showSpinner" [style]="{width: '30px', height: '30px'}"></p-progressSpinner>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
