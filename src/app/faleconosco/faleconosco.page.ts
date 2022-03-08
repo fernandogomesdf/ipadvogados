@@ -19,6 +19,8 @@ export class FaleconoscoPage implements OnInit {
   solicitar() {
     if (this.isValido()) {
       this.appService.request('/services/mail/enviar', this.formulario, VerboHttp.POST).subscribe(data => {
+        console.log(data);
+        console.log(data.resposta);
         if (data && data.resposta === 'ok') {
           this.appService.msgSucesso('A mensagem foi enviada com sucesso, aguarde contato!');
         }

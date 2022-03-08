@@ -30,7 +30,8 @@ export class AppService {
   }
 
   getServerHostPort() {
-    const serverHostPort = location.protocol + '//ipadvogados.com/sqlite-rest';
+    //const serverHostPort = location.protocol + '//ipadvogados.com/sqlite-rest';
+    const serverHostPort = location.protocol + '//localhost:8080/sqlite-rest';
     return serverHostPort;
   }
 
