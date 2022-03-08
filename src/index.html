@@ -25,6 +25,31 @@
 
 <body>
   <app-root></app-root>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyD8jNBwyq2UsQEz_AKF0MlByq4055wMMrA",
+      authDomain: "niv-bible-audiobook.firebaseapp.com",
+      databaseURL: "https://niv-bible-audiobook.firebaseio.com",
+      projectId: "niv-bible-audiobook",
+      storageBucket: "niv-bible-audiobook.appspot.com",
+      messagingSenderId: "523683464785",
+      appId: "1:523683464785:web:fab45fa0399b4ffff95a70",
+      measurementId: "G-DTN37XQ2VN"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
 
 </html>
