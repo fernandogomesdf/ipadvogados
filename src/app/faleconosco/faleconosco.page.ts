@@ -1,3 +1,4 @@
+import { AppService, VerboHttp } from './../app.service';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 
@@ -10,14 +11,18 @@ export class FaleconoscoPage implements OnInit {
 
   formulario: any = {};
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private appService: AppService) { }
 
   ngOnInit() {
   }
 
   solicitar() {
     if (this.isValido()) {
-
+      this.appService.request('/services/mail/enviar', this.formulario, VerboHttp.POST).subscribe(data => {
+        if (data && data.resposta === 'ok') {
+          this.appService.msgSucesso('A mensagem foi enviada com sucesso, aguarde contato!');
+        }
+      });
     }
   }
 
