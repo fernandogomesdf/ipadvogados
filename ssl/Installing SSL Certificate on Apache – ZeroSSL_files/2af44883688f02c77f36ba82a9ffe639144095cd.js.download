@@ -1,0 +1,25 @@
+(function($, window, document) {
+  ('use strict');
+
+  var MenuToggle = {
+    init: function() {
+      this.cacheElements();
+      this.bindEvents();
+    },
+    cacheElements: function() {
+      this.$button = $('[data-toggle-menu]');
+      this.$menu = $('[data-menu]');
+      this.$topbarNav = $('[data-topbar-nav]');
+    },
+    bindEvents: function() {
+      $(document).on('click', '[data-toggle-menu]', this.handleClick.bind(this));
+    },
+    handleClick: function(e) {
+      $(e.target).toggleClass(LotusConfig.css.activeClass);
+      this.$topbarNav.toggleClass(LotusConfig.css.topbarNavActive);
+      this.$menu.toggle();
+    }
+  };
+
+  window.MenuToggle = MenuToggle;
+})(jQuery, window, document);

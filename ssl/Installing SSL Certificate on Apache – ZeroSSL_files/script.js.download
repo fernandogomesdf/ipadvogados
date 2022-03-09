@@ -1,0 +1,64 @@
+$(function() {
+  SearchResultsFilters.init();
+  Header.init();
+  MenuToggle.init();
+  Layout.init();
+});
+
+/* ZEROSSL */
+	// dropdown menus 
+	$('body').on('click', '[data-dropdown="toggle"]', function() {
+	
+	   	$('body').find('[data-dropdown="menu"]').not($(this).next('[data-dropdown="menu"]')).hide(0);
+			
+		if ($(this).next('[data-dropdown="menu"]').is(':visible')) {
+		$(this).removeClass('dropdown_open');
+		$(this).next('[data-dropdown="menu"]').fadeOut(50);
+		} else {
+		$(this).addClass('dropdown_open');
+		$(this).next('[data-dropdown="menu"]').fadeIn(50);
+		}
+		
+	});
+	
+	$('body').on('click', function(event) {
+		
+		if ($(event.target).parents('ul').attr('data-dropdown') !== 'menu' && $(event.target).attr('data-dropdown') !== 'toggle') {
+		$('body').find('[data-dropdown="toggle"]').removeClass('dropdown_open');
+		$('body').find('[data-dropdown="menu"]').fadeOut(50);
+		}
+		
+	});
+
+	/* MOBILE HEADER TOGGLE */
+	$('body').on('click', '[data-header-toggle="true"]', function() {
+		
+		$('.header [data-header-toggle="true"]+ul').slideToggle(100);
+		$('body').toggleClass('overflow_hidden');
+			
+	});
+
+ /* CTA FOOTER SUBMISSION */
+  $('body').on('click', '[data-action="submit_footer_cta"]', function (event) {
+    event.preventDefault();
+    var email = $('body').find('[name="cta_email"]').val();    
+    // redirect to signup 
+    window.location.href = 'https://app.zerossl.com/signup/email/' + email;
+  });
+
+/* Ticket Form */
+$( document ).ready(function() {
+  // Handler for .ready() called.
+  
+  // we want to hide MissionControl Number and Portal Drop-Down
+  //$(".request_custom_fields_45386689").hide();
+  //$(".request_custom_fields_45416545").hide();  
+  //$(".request_custom_fields_360013661279").hide()
+  // => now in CSS
+  
+  //set article origin
+  const urlParams = new URLSearchParams(window.location.search);
+  const from_article = urlParams.get('from_article');
+  $('#request_custom_fields_360013661279').val(from_article);
+  
+});

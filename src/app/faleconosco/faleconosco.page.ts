@@ -22,7 +22,7 @@ export class FaleconoscoPage implements OnInit {
       this.appService.request('/services/mail/enviar', this.formulario, VerboHttp.POST).subscribe(data => {
         if (data && data.resposta === 'ok') {
           this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'A mensagem foi enviada com sucesso, aguarde contato!' });
-          this.formulario = {};
+          this.formulario = {telefone: '55619'};
         }
       });
     }
