@@ -1,7 +1,7 @@
 # ipadvogados
 site do israel
 
-curl --location --request POST 'http://ipadvogados.com/sqlite-rest/services/mail/enviar' \
+curl --location --request POST 'https://ipadvogados.com/sqlite-rest/services/mail/enviar' \
 --header 'Content-Type: application/json' \
 --data '{
     "nome" : "Fer",
