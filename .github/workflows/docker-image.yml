@@ -30,6 +30,6 @@ jobs:
           file: ./Dockerfile
           pull: true
           push: true
-          cache-from: type=registry,ref=axukz3ypbqji/ipadvogados:latest
+          cache-from: type=registry,ref=axukz3ypbqji/summtech.dev@gmail.com/ipadvogados:latest
           cache-to: type=inline
-          tags: axukz3ypbqji/ipadvogados:latest
+          tags: axukz3ypbqji/summtech.dev@gmail.com/ipadvogados:latest
