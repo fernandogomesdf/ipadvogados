@@ -12,3 +12,7 @@ curl --location --request POST 'https://ipadvogados.com/sqlite-rest/services/mai
 
 docker build -t ipadvogados .
 docker run --name ipadvogados -d -p 80:80 ipadvogados
+
+ssh-keygen -t rsa -b 4096 -m pem -C "ffernando_gomes@hotmail.com"
+
+https://gitlab-ci@github.com/fernandogomesdf/ipadvogados.git
