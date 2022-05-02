@@ -13,8 +13,7 @@ jobs:
     steps:
 
     - uses: actions/checkout@v3
-    - 
-      name: Build Angular
+    - name: Build Angular
       run: npm install && npm run build
     
     - 
