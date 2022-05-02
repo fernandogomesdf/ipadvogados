@@ -11,19 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
 
-    - name: Build Angular
+    - uses: actions/checkout@v3
+    - 
+      name: Build Angular
       run: npm install && npm run build
     
-    - name: Log into registry
-        uses: docker/login-action@v1
+    - 
+      name: Log into registry
+        uses: docker/login-actionv1.14.1
         with:
           registry: ${{ secrets.REGISTRY_URL }}
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    - name: Build & Push
+    - 
+      name: Build & Push
         uses: docker/build-push-action@v2
         with:
           push: true
