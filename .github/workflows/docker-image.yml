@@ -15,4 +15,12 @@ jobs:
     - name: Build Angular
       run: npm install && npm run build
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ipadvogados:$(date +%s)
+      run: docker build . --file Dockerfile --tag ipadvogados:latest
+
+  registry:
+    steps:
+    - name: Registry
+      run: echo {{secrets.REGISTRY_PASSWORD}}
+    
+  
+      
