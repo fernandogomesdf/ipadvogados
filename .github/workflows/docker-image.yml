@@ -13,5 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: npm -v
-      run: docker build . --file Dockerfile --tag ipadvogados:$(date +%s)
+      run:
+        - npm -v 
+        - docker build . --file Dockerfile --tag ipadvogados:$(date +%s)
