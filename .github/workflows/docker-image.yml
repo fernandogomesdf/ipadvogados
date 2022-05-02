@@ -30,6 +30,4 @@ jobs:
           file: ./Dockerfile
           pull: true
           push: true
-          cache-from: type=registry,ref=phx.ocir.io/axukz3ypbqji/ipadvogados:latest
-          cache-to: type=inline
-          tags: ipadvogados:latest
+          tags: phx.ocir.io/axukz3ypbqji/ipadvogados:latest
