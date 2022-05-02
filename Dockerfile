@@ -9,12 +9,14 @@ WORKDIR /usr/local/app
 # Add the source code to app
 COPY ./ /usr/local/app/
 
-
 # Install all the dependencies
 RUN npm install
 
 # Generate the build of the application
 RUN npm run build
+
+# Copy the build output to replace the default nginx contents.
+COPY ./www /usr/share/nginx/html
 
 # Stage 2: Serve app with nginx server
 
@@ -22,9 +24,6 @@ RUN npm run build
 FROM nginx:1.21.6
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copy the build output to replace the default nginx contents.
-COPY /www /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
