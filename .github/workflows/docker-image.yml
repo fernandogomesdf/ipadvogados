@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Registry
-      run: echo {{secrets.REGISTRY_PASSWORD}}
+      run: echo ${{secrets.REGISTRY_PASSWORD}}
     
   
       
