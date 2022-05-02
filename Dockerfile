@@ -24,7 +24,7 @@ FROM nginx:1.21.6
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy the build output to replace the default nginx contents.
-COPY ./www/ /usr/share/nginx/html/
+COPY /www /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
