@@ -12,8 +12,8 @@ stages:
         shellScript: echo ${FIRST_KEY} && echo ${ALIAS_ENV}
       # Set environment variables in container for the step
       env:
-        FIRST_KEY: VALUE
-        SECOND_KEY: VALUE2
+        FIRST_KEY: VALUE df
+        SECOND_KEY: VALUE2 df
       # Set environment variables from project secrets
       envFrom:
       - sourceName: my-secret
