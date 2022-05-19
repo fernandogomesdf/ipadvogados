@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipadvogados-deployment
+  namespace: summtech
+  labels:
+    app: ipadvogados
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ipadvogados
+  template:
+    metadata:
+      labels:
+        app: ipadvogados
+    spec:
+      containers:
+        - name: ipadvogados
+          image: phx.ocir.io/axukz3ypbqji/ipadvogados:latest
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        # enter the name of the secret you created
+        - name: ocirsecret
+
