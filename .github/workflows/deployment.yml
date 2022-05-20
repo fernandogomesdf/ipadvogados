@@ -17,11 +17,7 @@ spec:
     spec:
       containers:
         - name: ipadvogados
-          # http://nexus.local/repository/docker-hub/ipadvogados:latest
-          image: phx.ocir.io/axukz3ypbqji/ipadvogados:latest
+          image: http://nexus.summtech.in/repository/docker-hub/ipadvogados:latest
           ports:
             - containerPort: 80
-      imagePullSecrets:
-        # enter the name of the secret you created
-        - name: ocirsecret
 
