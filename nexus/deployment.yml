@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nexus
-          image: wfr3d/nexus3-arm:3.15.2
+          image: klo2k/nexus3:latest
           resources:
             limits:
               memory: "4Gi"

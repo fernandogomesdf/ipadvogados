@@ -1,17 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nexus-service
+  name: nexus-server
   namespace: nexus
-  annotations:
-      prometheus.io/scrape: 'true'
-      prometheus.io/path:   /
-      prometheus.io/port:   '8081'
 spec:
   selector:
     app: nexus-server
-  type: NodePort
+  type: ClusterIP
   ports:
-    - port: 8081
+    -
+      name: nexus-registry
+      port: 8081
+      protocol: TCP
       targetPort: 8081
-      nodePort: 32000
