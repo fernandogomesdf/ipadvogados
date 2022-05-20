@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
         - name: ipadvogados
+          # http://nexus.local/repository/docker-hub/ipadvogados:latest
           image: phx.ocir.io/axukz3ypbqji/ipadvogados:latest
           ports:
             - containerPort: 80
