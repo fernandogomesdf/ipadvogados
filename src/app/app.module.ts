@@ -14,10 +14,9 @@ import { HeaderModule } from './header/header.module';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CardModule, HeaderModule, BrowserAnimationsModule, HttpClientModule],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, MessageService],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CardModule, HeaderModule, BrowserAnimationsModule, HttpClientModule],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, MessageService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
