@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ipadvogados
+  namespace: summtech
+  annotations:
+    kubernetes.io/ingress.class: "mginx" # foi necessário mudar para 'contour' para gerar o certificado
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  rules:
+  - host: ipadvogados.local
+    http:
+      paths:
+      - backend:
+          service:
+            name: ipadvogados
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: ipadvogados.summtech.in
+    http:
+      paths:
+      - backend:
+          service:
+            name: ipadvogados
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+    - hosts:
+      - ipadvogados.summtech.in
+      secretName: ipadvogados-cert-tls
+      
