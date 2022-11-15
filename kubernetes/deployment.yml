@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ipadvogados-deployment
+  name: ipadvogados
   namespace: summtech
   labels:
     app: ipadvogados
@@ -17,7 +17,13 @@ spec:
     spec:
       containers:
         - name: ipadvogados
-          image: http://nexus.summtech.in/repository/docker-hub/ipadvogados:latest
+          image: ghcr.io/fernandogomesdf/ipadvogados:latest
           ports:
             - containerPort: 80
-
+          resources:
+            limits:
+              cpu: "1"
+              memory: 2Gi
+            requests:
+              cpu: 500m
+              memory: 1Gi

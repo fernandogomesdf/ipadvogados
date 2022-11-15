@@ -1,5 +1,5 @@
 # Use official nginx image as the base image
-FROM nginx:1.21.6
+FROM arm64v8/nginx:1.23.2
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./www/ /usr/share/nginx/html/
