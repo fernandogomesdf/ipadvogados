@@ -27,4 +27,4 @@ jobs:
           file: ./Dockerfile
           pull: true
           push: true
-          tags: https://nexus.summtech.in/repository/docker-summtech//ipadvogados:latest
+          tags: https://nexus.summtech.in/repository/docker-summtech/ipadvogados:latest
