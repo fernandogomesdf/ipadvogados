@@ -1,0 +1,6 @@
+version: '3.9' 
+services: 
+    ipadvogados: 
+      image: 'ghcr.io/fernandogomesdf/ipadvogados:latest'
+      ports: 
+        - 80

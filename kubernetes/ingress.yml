@@ -4,7 +4,7 @@ metadata:
   name: ipadvogados
   namespace: summtech
   annotations:
-    kubernetes.io/ingress.class: "mginx" # foi necessário mudar para 'contour' para gerar o certificado
+    kubernetes.io/ingress.class: "nginx" # foi necessário mudar para 'contour' para gerar o certificado
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   rules:
