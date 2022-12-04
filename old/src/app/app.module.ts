@@ -1,0 +1,22 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MessageService } from 'primeng/api';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { IonicModule } from '@ionic/angular';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
+import { CardModule } from 'primeng/card';
+import { HeaderModule } from './header/header.module';
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule({
+    declarations: [AppComponent],
+    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CardModule, HeaderModule, BrowserAnimationsModule, HttpClientModule],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, MessageService],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
