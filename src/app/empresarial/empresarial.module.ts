@@ -1,5 +1,3 @@
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -17,9 +15,7 @@ import { HeaderModule } from '../header/header.module';
     FormsModule,
     IonicModule,
     EmpresarialPageRoutingModule,
-    HeaderModule,
-    CardModule,
-    ButtonModule
+    HeaderModule
   ],
   declarations: [EmpresarialPage],
   schemas: [NO_ERRORS_SCHEMA]
