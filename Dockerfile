@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM arm64v8/node:18-alpine
 
 RUN mkdir -p /usr/src/www
 WORKDIR /usr/src/www
