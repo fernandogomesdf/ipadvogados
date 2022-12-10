@@ -1,5 +1,3 @@
-<p-toast></p-toast>
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -10,7 +8,7 @@
       <ion-button>
         <ion-icon name="logo-whatsapp"></ion-icon>
       </ion-button>
-      <p-progressSpinner *ngIf="appService.showSpinner" [style]="{width: '30px', height: '30px'}"></p-progressSpinner>
+      <ion-spinner *ngIf="appService.showSpinner" name="crescent"></ion-spinner>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

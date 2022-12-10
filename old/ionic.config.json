@@ -1,7 +1,0 @@
-{
-  "name": "ipadvogados",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
