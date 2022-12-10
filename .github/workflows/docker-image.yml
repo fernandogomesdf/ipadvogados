@@ -28,6 +28,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
+          platforms: ${{ env.TARGET_PLATFORMS }}
           file: ./Dockerfile
           pull: true
           push: true
