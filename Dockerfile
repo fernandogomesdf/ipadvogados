@@ -1,8 +1,15 @@
-# Use official nginx image as the base image
-FROM arm64v8/nginx:1.23.2
+## Use Node Slim image
+FROM node:18-alpine
 
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-COPY ./www/ /usr/share/nginx/html/
+RUN mkdir -p /usr/src/www
+WORKDIR /usr/src/www
 
-# Expose port 80
-EXPOSE 80
+COPY . /usr/src/www
+
+RUN npm install
+RUN npm run build
+
+## Start the application
+CMD ["npm", "run", "start"]
+
+EXPOSE 4000

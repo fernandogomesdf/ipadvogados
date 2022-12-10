@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { AppService, VerboHttp } from './../app.service';
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-faleconosco',
@@ -10,9 +10,9 @@ import { MessageService } from 'primeng/api';
 })
 export class FaleconoscoPage implements OnInit {
 
-  formulario: any = { telefone: '55619' };
+  formulario: any = { telefone: '+55 (61) 9' };
 
-  constructor(private messageService: MessageService, private appService: AppService) { }
+  constructor(private toastController: ToastController, private appService: AppService) { }
 
   ngOnInit() {
   }
@@ -21,7 +21,7 @@ export class FaleconoscoPage implements OnInit {
     if (this.isValido()) {
       this.appService.request('/services/mail/enviar', this.formulario, VerboHttp.POST).subscribe(data => {
         if (data && data.resposta === 'ok') {
-          this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'A mensagem foi enviada com sucesso, aguarde contato!' });
+          this.presentToast('top','A mensagem foi enviada com sucesso, aguarde contato!')
           this.formulario = {telefone: '55619'};
         }
       });
@@ -30,41 +30,49 @@ export class FaleconoscoPage implements OnInit {
 
   isValido() {
     let valido = true;
-
-    if (!this.formulario.nome) {
-      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O nome é requerido.' });
+    
+    if (!this.formulario.nome || this.formulario.nome.length < 4) {
+      this.presentToast('top','O nome é requerido.')
       valido = false;
     }
 
     if (!this.formulario.telefone) {
-      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O telefone é requerido.' });
+      this.presentToast('top','O telefone é requerido.')
+      valido = false;
+    }
+    
+    if (this.formulario.telefone.length < 15) {
+      this.presentToast('top','O telefone é inválido.')
       valido = false;
     }
 
-    if (this.formulario.telefone.length !== 13) {
-      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O telefone é inválido.' });
+    if (!this.formulario.email || !this.isEmailValid(this.formulario.email)) {
+      this.presentToast('top','O e-mail é requerido e precisa ser válido.')
       valido = false;
-    }
-
-    if (this.formulario.email) {
-      if (!this.isEmailValid(this.formulario.email)) {
-        this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O e-mail é inválido.' });
-        valido = false;
-      }
     }
 
     if (!this.formulario.texto) {
-      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'O texto descrevendo seu caso é requerido.' });
+      this.presentToast('top','O texto descrevendo seu caso é requerido.')
       valido = false;
     }
 
     return valido;
   }
 
-  isEmailValid(email) {
+  isEmailValid(email: string) {
     // eslint-disable-next-line max-len
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
+  }
+
+  async presentToast(position: 'top' | 'middle' | 'bottom', message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 1500,
+      position: position
+    });
+
+    await toast.present();
   }
 
 }

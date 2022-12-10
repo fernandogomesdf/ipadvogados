@@ -2,7 +2,14 @@
 
 <ion-content>
   <div class="p-2">
-    <p-card header="Direito Administrativo" [style]="{width: '100%'}" styleClass="p-card-shadow">
+
+
+    <ion-card>
+      <ion-card-header class="ion-text-center">
+        <ion-card-title >Direito Administrativo</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
 
       <table width="100%">
         <tr>
@@ -271,12 +278,15 @@
       enquanto o escritório foca em sua própria especialidade, lidar com as questões legais.
 
       <br><br>
-      <center>
-        <a routerLink="/faleconosco">
-          <button pButton type="button" label="FALE CONOSCO" icon="pi pi-envelope" iconPos="left"></button>
-        </a>
-      </center>
-    </p-card>
+      <div class="center">
+        <ion-button routerLink="/faleconosco">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          FALE CONOSCO    
+      </ion-button>
+      </div>
+    </ion-card-content>
+            
+  </ion-card>
   </div>
 
 </ion-content>

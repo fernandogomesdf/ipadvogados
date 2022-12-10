@@ -8,7 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { map, share } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MessageService } from 'primeng/api';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root',
@@ -19,11 +19,8 @@ export class AppService {
 
   hrefwpp = 'https://api.whatsapp.com/send?phone=5561984562536&text=Ol%C3%A1,%20preciso%20de%20assist%C3%AAncia%20com%20o%20seguinte%20assunto:%20';
 
-  constructor(private http: HttpClient, private router: Router, private messageService: MessageService) {
+  constructor(private http: HttpClient, private router: Router, private toastController: ToastController) {
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.messageService.clear();
-      }
     });
   }
 
@@ -33,27 +30,36 @@ export class AppService {
 
   getServerHostPort() {
     const serverHostPort = location.protocol + '//ipadvogados.com/sqlite-rest';
-    //const serverHostPort = location.protocol + '//localhost:8080/sqlite-rest';
     return serverHostPort;
   }
 
-  msgInfo(detail) {
-    this.msg('info', 'Informação', detail);
+  async presentToast(position: 'top' | 'middle' | 'bottom', message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 1500,
+      position: position
+    });
+
+    await toast.present();
   }
 
-  msgWarn(detail) {
-    this.msg('warn', 'Alerta', detail);
+  msgInfo(detail: string) {
+    this.presentToast('top',detail)
   }
 
-  msgErro(detail) {
-    this.msg('error', 'Erro', detail);
+  msgWarn(detail: string) {
+    this.presentToast('top',detail)
   }
 
-  msgSucesso(detail) {
-    this.msg('success', 'Sucesso', detail);
+  msgErro(detail: string) {
+    this.presentToast('top',detail)
   }
 
-  tratarErro(err) {
+  msgSucesso(detail: string) {
+    this.presentToast('top',detail)
+  }
+
+  tratarErro(err:any) {
     try {
       if (err.status && err.status === 401) {
         this.router.navigate(['/']);
@@ -105,10 +111,6 @@ export class AppService {
     return response$;
   }
 
-  private msg(severity, summary, detail) {
-    this.messageService.add({ severity, summary, detail });
-  }
-
   private chamarUrl(url: string, data: any, verbo: VerboHttp): Observable<any> {
     const token = sessionStorage.getItem('token');
     const httpOptions = {
@@ -131,6 +133,7 @@ export class AppService {
       default:
         break;
     }
+    return this.http.get(url, httpOptions);
   }
 
 }
