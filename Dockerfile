@@ -1,5 +1,7 @@
 FROM node:18-alpine
 
+
+USER root
 RUN mkdir -p /usr/src/www
 WORKDIR /usr/src/www
 
