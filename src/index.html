@@ -3,14 +3,18 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Ionic App</title>
+  <title>Israel Paulino Advogados</title>
 
   <base href="/" />
 
   <meta name="color-scheme" content="light dark" />
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="description" content="Israel Paulino Advogados">
+  <meta name="keywords"
+    content="direito, advocacia, criminal, maria da penha, estelionato, habeas corpus, furto, prisão, tráfico, delegacia, ameaça, sequestro">
 
   <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
 
@@ -21,6 +25,31 @@
 
 <body>
   <app-root></app-root>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyD8jNBwyq2UsQEz_AKF0MlByq4055wMMrA",
+      authDomain: "niv-bible-audiobook.firebaseapp.com",
+      databaseURL: "https://niv-bible-audiobook.firebaseio.com",
+      projectId: "niv-bible-audiobook",
+      storageBucket: "niv-bible-audiobook.appspot.com",
+      messagingSenderId: "523683464785",
+      appId: "1:523683464785:web:fab45fa0399b4ffff95a70",
+      measurementId: "G-DTN37XQ2VN"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
 
 </html>

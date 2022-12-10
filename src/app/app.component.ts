@@ -1,18 +1,32 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
+import { AppService } from './app.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Home', url: '/#/home', icon: 'home' },
+    { title: 'Direito Crimininal', url: '/#/criminal', icon: 'caret-forward' },
+    { title: 'Direito Empresarial', url: '/#/empresarial', icon: 'caret-forward' },
+    { title: 'Direito Trabalhista', url: '/#/trabalhista', icon: 'caret-forward' },
+    { title: 'Direito Imobiliário', url: '/#/imobiliario', icon: 'caret-forward' },
+    { title: 'Direito Administrativo', url: '/#/administrativo', icon: 'caret-forward' },
+    { title: 'Direito Médico', url: '/#/medico', icon: 'caret-forward' },
+    { title: 'Direito Tributário', url: '/#/tributario', icon: 'caret-forward' },
+    { title: 'Tribunais Superiores', url: '/#/superiores', icon: 'caret-forward' },
+    { title: 'Fale Conosco', url: '/#/faleconosco', icon: 'mail' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+
+  constructor(private appService: AppService) { }
+
+  ngAfterViewInit(): void {
+
+  }
+
+  whatsapp() {
+    this.appService.whatsapp()
+  }
+
 }
