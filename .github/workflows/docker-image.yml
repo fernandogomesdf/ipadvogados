@@ -4,6 +4,10 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+
+env:
+  TARGET_PLATFORMS: linux/arm64
+
 jobs:
   build:
     runs-on: ubuntu-latest
