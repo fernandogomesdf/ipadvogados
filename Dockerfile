@@ -1,5 +1,4 @@
-## Use Node Slim image
-FROM node:18-alpine
+FROM node:18
 
 RUN mkdir -p /usr/src/www
 WORKDIR /usr/src/www
