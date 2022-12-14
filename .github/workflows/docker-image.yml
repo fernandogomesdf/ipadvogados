@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          platforms: linux/arm/v8
+          platforms: linux/arm/v7
           file: ./Dockerfile
           pull: true
           push: true
