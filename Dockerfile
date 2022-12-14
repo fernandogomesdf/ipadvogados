@@ -4,7 +4,7 @@ COPY . .
 RUN npm install -g npm@latest 
 RUN npm install -g @angular/cli
 RUN npm install
-RUN la -la
+RUN ls -la
 RUN ng build --configuration production
 
 ## Start the application
