@@ -11,6 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "dev:ssr": "ng run app:serve-ssr",
+    "preserve:ssr": "npm install -g npm@latest && npm install -g @angular/cli && npm install",
     "serve:ssr": "ng build --configuration production && node dist/app/server/main.js",
     "build:ssr": "ng build && ng run app:server",
     "prerender": "ng run app:prerender"
