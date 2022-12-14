@@ -1,9 +1,8 @@
 FROM arm64v8/node:18
 
-WORKDIR /usr/src/www
-COPY . /usr/src/www
+COPY . .
 
 ## Start the application
-CMD ["npm", "run", "start"]
+CMD ["node", "dist/app/server/main.js"]
 
 EXPOSE 4000
