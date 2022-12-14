@@ -24,6 +24,7 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
+          arch: armv8
           context: .
           file: ./Dockerfile
           pull: true
