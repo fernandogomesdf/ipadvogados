@@ -9,6 +9,6 @@ RUN ls -la
 RUN ng build --configuration production
 
 ## Start the application
-CMD ["node", "dist/app/server/main.js"]
+CMD ["node", "/app/dist/app/server/main.js"]
 
 EXPOSE 4000
