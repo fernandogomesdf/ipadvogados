@@ -1,10 +1,10 @@
 FROM arm64v8/node:18
 
 COPY . .
-RUN sudo npm install -g npm@latest 
-RUN sudo npm install -g @angular/cli@latest 
-RUN sudo npm install
-RUN sudo ng build --configuration production
+RUN npm install -g npm@latest 
+RUN npm install -g @angular/cli@latest 
+RUN npm install
+RUN ng build --configuration production
 
 ## Start the application
 CMD ["node", "dist/app/server/main.js"]
