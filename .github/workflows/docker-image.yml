@@ -10,10 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Build Angular
-        run: pwd && npm install -g npm@latest && npm install -g @angular/cli && npm install
-
+      
       - name: Login to Registry
         uses: docker/login-action@v2
         with:
