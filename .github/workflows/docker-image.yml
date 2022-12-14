@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build Angular
-        run: npm install --force && npm run build
+        run: npm install --force && npm run build && npm install -g npm@latest
 
       - name: Login to Registry
         uses: docker/login-action@v2
