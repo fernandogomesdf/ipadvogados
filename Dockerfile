@@ -1,6 +1,7 @@
 FROM arm64v8/node:18
 
-COPY . .
+WORKDIR /app
+COPY . /app
 RUN npm install -g npm@latest 
 RUN npm install -g @angular/cli
 RUN npm install
