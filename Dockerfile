@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FROM arm64v8/node:18
+FROM --platform=linux/arm64 node:18
 
 WORKDIR /app
 COPY . /app
