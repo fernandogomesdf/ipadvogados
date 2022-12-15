@@ -1,4 +1,4 @@
-FROM node:18
+FROM armv7/node:18
 
 WORKDIR /app
 COPY . /app
