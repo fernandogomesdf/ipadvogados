@@ -1,5 +1,3 @@
-#!/bin/bash
-
 FROM --platform=linux/arm64 node:18
 
 WORKDIR /app
