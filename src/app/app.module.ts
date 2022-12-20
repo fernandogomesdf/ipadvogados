@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import { HeaderModule } from './header/header.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
     imports: [BrowserModule.withServerTransition({
         appId: 'ipadvogados'
     }), IonicModule.forRoot(), AppRoutingModule, HeaderModule, BrowserAnimationsModule, HttpClientModule, FormsModule],
-    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+    providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
     bootstrap: [AppComponent],
     schemas : [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
