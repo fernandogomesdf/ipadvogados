@@ -55,6 +55,8 @@ import 'zone.js';  // Included with Angular CLI.
 // Configure strict mode globally
 'use strict';
 
+(window as any).global = window;
+
 // Fix TypeScript error by casting window to any
 if (typeof window !== 'undefined' && !(window as any).cookieStore) {
   try {

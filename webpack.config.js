@@ -1,7 +1,13 @@
+const webpack = require('webpack');
+
 module.exports = {
   resolve: {
     fallback: {
-      "url": require.resolve("url/")
+      "url": require.resolve("url/"),
+      "stream": require.resolve("stream-browserify"),
+      "process/browser": require.resolve("process/browser"),
+      "util": require.resolve("util/"),
+      "buffer": require.resolve("buffer/")
     }
   },
   devServer: {
@@ -38,5 +44,12 @@ module.exports = {
         }
       }
     }
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+      Buffer: ['buffer', 'Buffer'],
+      global: require.resolve('global')
+    })
+  ]
 }
