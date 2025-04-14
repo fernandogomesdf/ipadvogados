@@ -51,3 +51,23 @@ import 'zone.js';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+// Configure strict mode globally
+'use strict';
+
+// Fix TypeScript error by casting window to any
+if (typeof window !== 'undefined' && !(window as any).cookieStore) {
+  try {
+    Object.defineProperty(window, '_customCookieStore', {
+      value: {
+        get: () => Promise.resolve(null),
+        set: () => Promise.resolve(),
+        delete: () => Promise.resolve()
+      },
+      writable: false, // Ensure it is not writable to avoid conflicts
+      configurable: true
+    });
+  } catch (error) {
+    console.warn('Failed to define _customCookieStore:', error);
+  }
+}

@@ -3,13 +3,12 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import { IonicServerModule } from '@ionic/angular-server';
 
 import { FaleconoscoPageRoutingModule } from './faleconosco-routing.module';
 
 import { FaleconoscoPage } from './faleconosco.page';
 import { HeaderModule } from '../header/header.module';
-import { NgxMaskModule } from 'ngx-mask';
 
 //export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -17,10 +16,9 @@ import { NgxMaskModule } from 'ngx-mask';
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicServerModule,
     FaleconoscoPageRoutingModule,
-    HeaderModule,
-    NgxMaskModule.forRoot()
+    HeaderModule
   ],
   declarations: [FaleconoscoPage],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],

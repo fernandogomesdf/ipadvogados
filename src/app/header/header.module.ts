@@ -1,13 +1,14 @@
 
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+
 import { HeaderComponent } from './header.component';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { IonicServerModule } from '@ionic/angular-server';
 
 
 @NgModule({
   imports: [
-    IonicModule,
+    IonicServerModule,
     CommonModule
   ],
   declarations: [
