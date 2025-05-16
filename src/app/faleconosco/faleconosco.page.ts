@@ -4,9 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-faleconosco',
-  templateUrl: './faleconosco.page.html',
-  styleUrls: ['./faleconosco.page.scss'],
+    selector: 'app-faleconosco',
+    templateUrl: './faleconosco.page.html',
+    styleUrls: ['./faleconosco.page.scss'],
+    standalone: false
 })
 export class FaleconoscoPage implements OnInit {
 

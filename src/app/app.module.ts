@@ -13,9 +13,21 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 
 
-@NgModule({ declarations: [AppComponent],
-    bootstrap: [AppComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA], imports: [BrowserModule.withServerTransition({
-            appId: 'ipadvogados'
-        }), IonicModule.forRoot(), AppRoutingModule, HeaderModule, BrowserAnimationsModule, FormsModule], providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }, provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+  imports: [
+    BrowserModule, // Removido withServerTransition, pois não existe mais no Angular 19
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HeaderModule,
+    BrowserAnimationsModule,
+    FormsModule
+  ],
+  providers: [
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
+    provideHttpClient(withInterceptorsFromDi())
+  ]
+})
 export class AppModule { }
