@@ -1,5 +1,8 @@
 import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { AppService } from './app.service';
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, PLATFORM_ID } from '@angular/core';
+
 @Component({
     selector: 'app-root',
     templateUrl: 'app.component.html',
@@ -19,8 +22,14 @@ export class AppComponent implements AfterViewInit {
     { title: 'Tribunais Superiores', url: '/superiores', icon: 'caret-forward' },
     { title: 'Fale Conosco', url: '/faleconosco', icon: 'mail' },
   ];
+  public isBrowser: boolean;
 
-  constructor(private appService: AppService) { }
+  constructor(
+    private appService: AppService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngAfterViewInit(): void {
 

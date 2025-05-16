@@ -1,4 +1,3 @@
-
 import 'zone.js/node';
 
 import { APP_BASE_HREF } from '@angular/common';
@@ -6,11 +5,11 @@ import { CommonEngine } from '@angular/ssr/node';
 import * as express from 'express';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import bootstrap from './src/main.server';
+import { AppServerModule } from './src/main.server';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
-  const server = express();
+  const server = express.default();
   const distFolder = join(process.cwd(), 'dist/app/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html'))
     ? join(distFolder, 'index.original.html')
@@ -29,17 +28,18 @@ export function app(): express.Express {
   }));
 
   // All regular routes use the Angular engine
-  server.get('*', (req, res, next) => {
+  server.get('*', (req: any, res: any, next: any) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
 
     commonEngine
       .render({
-        bootstrap,
+        bootstrap: AppServerModule,
         documentFilePath: indexHtml,
         url: `${protocol}://${headers.host}${originalUrl}`,
         publicPath: distFolder,
         providers: [
-          { provide: APP_BASE_HREF, useValue: baseUrl },],
+          { provide: APP_BASE_HREF, useValue: baseUrl },
+        ],
       })
       .then((html) => res.send(html))
       .catch((err) => next(err));
@@ -67,5 +67,3 @@ const moduleFilename = mainModule && mainModule.filename || '';
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
   run();
 }
-
-export default bootstrap;

@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import { HeaderModule } from './header/header.module';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withFetch } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 
@@ -27,7 +27,7 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },
-    provideHttpClient(withInterceptorsFromDi())
+    provideHttpClient(withInterceptorsFromDi(), withFetch())
   ]
 })
 export class AppModule { }
