@@ -9,17 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import { HeaderModule } from './header/header.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 
-@NgModule({
-    declarations: [AppComponent],
-    imports: [BrowserModule.withServerTransition({
-        appId: 'ipadvogados'
-    }), IonicModule.forRoot(), AppRoutingModule, HeaderModule, BrowserAnimationsModule, HttpClientModule, FormsModule],
-    providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
+@NgModule({ declarations: [AppComponent],
     bootstrap: [AppComponent],
-    schemas : [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
-})
+    schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA], imports: [BrowserModule.withServerTransition({
+            appId: 'ipadvogados'
+        }), IonicModule.forRoot(), AppRoutingModule, HeaderModule, BrowserAnimationsModule, FormsModule], providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
