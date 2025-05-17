@@ -1,42 +1,46 @@
 <app-header></app-header>
 
 <ion-content>
-  <div class="p-2">
-
-
-    <ion-card>
+  <div class="ion-padding">
+    <ion-card class="faleconosco-card">
       <ion-card-header class="ion-text-center">
-        <ion-card-title>Fale Conosco</ion-card-title>
+        <ion-card-title color="primary">Fale Conosco</ion-card-title>
+        <ion-card-subtitle>Preencha o formulário abaixo</ion-card-subtitle>
       </ion-card-header>
-
       <ion-card-content>
-        
-        <ion-list>
-          <ion-item>
-            <ion-label>Nome completo : </ion-label>
-            <ion-input [(ngModel)]="formulario.nome"></ion-input>
-          </ion-item>
+        <form>
+          <ion-list>
+            <ion-item fill="outline" class="ion-margin-bottom">
+              <ion-label position="stacked">Nome completo</ion-label>
+              <ion-input type="text" [(ngModel)]="formulario.nome" name="nome" required placeholder="Digite seu nome completo"></ion-input>
+            </ion-item>
 
-          <ion-item>
-            <ion-label>E-mail : </ion-label>
-            <ion-input [(ngModel)]="formulario.email"></ion-input>
-          </ion-item>
+            <ion-item fill="outline" class="ion-margin-bottom">
+              <ion-label position="stacked">E-mail</ion-label>
+              <ion-input type="email" [(ngModel)]="formulario.email" name="email" required placeholder="seu@email.com"></ion-input>
+            </ion-item>
 
-          <ion-item>
-            <ion-label>Telefone : </ion-label>
-            <ion-input [(ngModel)]="formulario.telefone"></ion-input>
-          </ion-item>
-          
-          <ion-item>
-            <ion-textarea [(ngModel)]="formulario.texto" placeholder="Descreva como podemos ajudar. Se preferir, solicite uma reunião."></ion-textarea>
-          </ion-item>
-          
-        </ion-list>
+            <ion-item fill="outline" class="ion-margin-bottom">
+              <ion-label position="stacked">Telefone</ion-label>
+              <ion-input type="tel" [(ngModel)]="formulario.telefone" name="telefone" required placeholder="+55 (xx) 9xxxx-xxxx"></ion-input>
+            </ion-item>
 
-        <ion-button routerLink="/faleconosco" (click)="solicitar()">
-          <ion-icon name="chatbubble-ellipses-outline" slot="start"></ion-icon>
-          Solicitar especialista
-        </ion-button>
+            <ion-item fill="outline" class="ion-margin-bottom">
+              <ion-label position="stacked">Como podemos ajudar?</ion-label>
+              <ion-textarea
+                autoGrow="true"
+                [(ngModel)]="formulario.texto"
+                name="texto"
+                required
+                placeholder="Descreva como podemos ajudar. Se preferir, solicite uma reunião."
+                rows="4">
+              </ion-textarea>
+            </ion-item>
+          </ion-list>          <ion-button expand="block" class="ion-margin-top" (click)="solicitar()">
+            <ion-icon name="chatbubble-ellipses-outline" slot="start"></ion-icon>
+            Solicitar especialista
+          </ion-button>
+        </form>
       </ion-card-content>
     </ion-card>
   </div>
@@ -44,7 +48,6 @@
 
 <ion-footer class="ion-no-border">
   <ion-toolbar>
-    <ion-title style="font-size: smaller;">SIG Quadra 1 - Centro Empresarial Parque Brasília, Loja 7
-    </ion-title>
+    <ion-title class="ion-text-center" style="font-size: smaller;">SIG Quadra 1 - Centro Empresarial Parque Brasília, Loja 7</ion-title>
   </ion-toolbar>
 </ion-footer>

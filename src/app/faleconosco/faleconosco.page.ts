@@ -11,7 +11,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class FaleconoscoPage implements OnInit {
 
-  formulario: any = { telefone: '+55 (61) 9' };
+  formulario: any = { telefone: '' };
 
   constructor(private toastController: ToastController, private appService: AppService) { }
 
@@ -23,7 +23,7 @@ export class FaleconoscoPage implements OnInit {
       this.appService.request('/services/mail/enviar', this.formulario, VerboHttp.POST).subscribe(data => {
         if (data && data.resposta === 'ok') {
           this.presentToast('top','A mensagem foi enviada com sucesso, aguarde contato!')
-          this.formulario = {telefone: '55619'};
+          this.formulario = {telefone: ''};
         }
       });
     }
